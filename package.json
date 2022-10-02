@@ -7,7 +7,9 @@
     "test": "jest",
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "nodemon build/index.js"
+    "start": "nodemon build/index.js",
+    "build:docker": "webpack && docker build --rm -t node_bootstrapper .",
+    "start:docker": "npm run build:docker && docker run --name node_bootstrapper node_bootstrapper:latest"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
