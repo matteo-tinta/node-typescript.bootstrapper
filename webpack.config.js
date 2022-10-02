@@ -2,6 +2,8 @@ const path = require('path');
 const nodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 var nodeExternals = require('webpack-node-externals');
 
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
   entry: './src/index.ts',
   target: 'node',
@@ -35,5 +37,8 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
   },
-  plugins: [new nodePolyfillPlugin()],
+  plugins: [
+    new nodePolyfillPlugin(),
+    new Dotenv()
+  ],
 };
